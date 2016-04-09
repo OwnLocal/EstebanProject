@@ -1,0 +1,5 @@
+{
+  "WebURL": ":8888",
+  "ES_URL" : "http://192.168.2.15:9200",
+  "ES_Index" : "ownlocal"
+}

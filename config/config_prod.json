@@ -1,0 +1,5 @@
+{
+  "WebURL": ":80",
+  "ES_URL" : "http://localhost:9200",
+  "ES_Index" : "ownlocal"
+}

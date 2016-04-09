@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="GOPATH &lt;OwnLocal&gt;">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../.." />
+      <root url="file://$PROJECT_DIR$/../../../gopkg.in" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <excluded>
+      <root url="file://$PROJECT_DIR$/../../../gopkg.in/olivere/elastic.v3/.git" />
+      <root url="file://$PROJECT_DIR$/.idea" />
+      <root url="file://$PROJECT_DIR$" />
+      <root url="file://$PROJECT_DIR$/.git" />
+      <root url="file://$PROJECT_DIR$/../../julienschmidt/httprouter/.git" />
+    </excluded>
+  </library>
+</component>
