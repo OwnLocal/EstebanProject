@@ -90,7 +90,7 @@ Execute `./OwnLocal` with the required flags. The available flags are:
 `-s` to setup ES. This creates the ES index (deleting it first if it already exists), adds the index settings and mappings, and then parses the CSV file to index all businesses into ES.
 
 ### Project Structure
-**Config:** containes configuration files to connect to ES and to define listening IP/port of API.
+**Config:** contains configuration files to connect to ES and to define listening IP/port of API.
 
 **Controllers:** controller files for API requests.
 
