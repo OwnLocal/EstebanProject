@@ -71,7 +71,7 @@ ElasticSearch is also required. https://www.elastic.co/downloads/elasticsearch
 
 ### Installation
 
-Clone the project from git. The Project has alrady been built, but there are some config files that may need be be modified.
+Clone the project from git. The project has alrady been built, but there are some config files that may need be be modified.
 
 **API and ElasticSearch running on same local machine**
 
@@ -85,9 +85,9 @@ If service will be deployed to another server then change the values of `config/
 
 Execute `./OwnLocal` with the required flags. The available flags are:
 
-`-p` to use prod config file. If this flag is not used the the debug config file will be used.
+`-p` to use prod config file. If this flag is not used then the debug config file will be used by default.
 
-`-s` to setup ES. This creates de ES index (deleting it first if it already exists), adds the index settings and mappings, and then parses the CSV file to index all businesses on ES.
+`-s` to setup ES. This creates the ES index (deleting it first if it already exists), adds the index settings and mappings, and then parses the CSV file to index all businesses into ES.
 
 ### Project Structure
 **Config:** containes configuration files to connect to ES and to define listening IP/port of API.
@@ -103,5 +103,3 @@ Execute `./OwnLocal` with the required flags. The available flags are:
 **Setup:** files to setup ES and index data.
 
 **Util:** other files, for now it only has wrapper for ResponseWriter.
-
-
