@@ -1,4 +1,50 @@
 ## OwnLocal
+## Demo!
+There is a demo running on http://ownlocal.r6.io:30205.
+
+###Endpoints
+
+**Search**
+
+`GET /businesses` returns a search result of the businesses. This endpoint may take several parameters: a search string, a number of items to skip (for paging), and the max number of results per page. Apart from the call with no parameters, the endpoint can be called like this `GET /businesses/:searchString/:from/:size`. Any of these parameters can be blank. `:from` by default is 0, that means it is the first page, and `:size` by default is 50 results. Results are always ordered by `id`.
+
+Searches are made on most fields at the same time. Name of the business has an `ngram analyzer`, which means searches can match partial words, other fields use `standard analyzer` which means only full words will be matched when searched.
+
+_Search Examples:_
+
+`GET /businesses` will return the first 50 businesses
+
+`GET /businesses/bot` will return the businesses that match the search `bot`.
+
+`GET /businesses/bot/10/5` will skip 10 results, and return 5 results (or page 3 if each page includes 5 results) that match the search `bot`.
+
+`GET /businesses//10/5` will skip 10 results, and return 5 results (or page 3 if each page includes 5 results) of all businesses.
+
+`GET /businesses/6068112791` will return the businesses with phone number `6068112791`.
+
+`GET /businesses/Roobland` will return the businesses with city `Roobland`.
+
+Results include an object with the following structure:
+
+```javascript
+{
+  businesses: [...],  // array with results
+  from: 0,            // number of results being skipped
+  maxResults: 50,     // max size of page
+  results: 12,        // the actual results of the page
+  search: bot         // the search string that generated these results   
+}
+```
+
+**Get by ID**
+
+`GET /business/:id` will return the business with that has the provided `id`.
+
+_Example:_
+
+`GET /business/33` will return the business with id `33`, which is Mraz and Sons.
+
+
 ### Stack
 Go and ElasticSearch
 
@@ -39,8 +85,9 @@ If service will be deployed to another server then change the values of `config/
 
 Execute `./OwnLocal` with the required flags. The available flags are:
 
-`-p` to use prod config file.
-`-s` to setup ES.
+`-p` to use prod config file. If this flag is not used the the debug config file will be used.
+
+`-s` to setup ES. This creates de ES index (deleting it first if it already exists), adds the index settings and mappings, and then parses the CSV file to index all businesses on ES.
 
 ### Project Structure
 **Config:** containes configuration files to connect to ES and to define listening IP/port of API.
