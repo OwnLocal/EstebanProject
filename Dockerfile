@@ -1,13 +1,10 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 
 # Update apt-get
-RUN apt-get update
+RUN apt-get update -y
 
 # Install Go
 RUN apt-get install -y golang
-
-# Install Elasticsearch
-RUN apt-get install -y elasticsearch
 
 # Bundle app source
 COPY . /src
@@ -15,8 +12,6 @@ COPY . /src
 # Install app dependencies
 WORKDIR /src
 
-RUN ./OwnLocal -p -s
-
 EXPOSE 80
 
-CMD /opt/elasticsearch/bin/elasticsearch && ./OwnLocal -p
+CMD ./OwnLocal -p

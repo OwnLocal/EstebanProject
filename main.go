@@ -18,9 +18,9 @@ func main() {
 		if err != nil {
 			log.Fatalf("Error setting up ElasticSearch Index: %s\n", err)
 		}
-	} else {
-		// todo: start using TLS when authentication is implemented
-		log.Printf("Starting server on %s", config.Config.WebURL)
-		log.Fatal(http.ListenAndServe(config.Config.WebURL, router.Router))
 	}
+
+	// todo: start using TLS when authentication is implemented
+	log.Printf("Starting server on %s", config.Config.WebURL)
+	log.Fatal(http.ListenAndServe(config.Config.WebURL, router.Router))
 }

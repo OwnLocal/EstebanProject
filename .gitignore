@@ -1,1 +1,4 @@
+kubernetes/rc.yaml
+kubernetes/svc.yaml
+.idea/*
 *.exe

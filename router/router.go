@@ -14,6 +14,7 @@ func init() {
 	Router = httprouter.New()
 
 	// Businesses
+	Router.GET("/businesses", business.List)
 	Router.GET("/businesses/:search", business.List)
 	Router.GET("/businesses/:search/:from", business.List)
 	Router.GET("/businesses/:search/:from/:size", business.List)
