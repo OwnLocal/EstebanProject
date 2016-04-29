@@ -1,11 +1,12 @@
 package business
 
 import (
-	"github.com/elohr/OwnLocal/config"
-	"gopkg.in/olivere/elastic.v3"
 	"log"
 	"strconv"
 	"time"
+
+	"github.com/OwnLocal/EstebanProject/config"
+	"gopkg.in/olivere/elastic.v3"
 )
 
 type business struct {

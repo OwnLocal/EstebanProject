@@ -2,12 +2,13 @@ package setup
 
 import (
 	"encoding/csv"
-	"github.com/elohr/OwnLocal/config"
-	"github.com/elohr/OwnLocal/models/business"
-	"gopkg.in/olivere/elastic.v3"
 	"io"
 	"log"
 	"os"
+
+	"github.com/OwnLocal/EstebanProject/config"
+	"github.com/OwnLocal/EstebanProject/models/business"
+	"gopkg.in/olivere/elastic.v3"
 )
 
 // SetupES will setup de ES index (deleting it first if it already exists),

@@ -1,11 +1,12 @@
 package main
 
 import (
-	"github.com/elohr/OwnLocal/config"
-	"github.com/elohr/OwnLocal/router"
-	esSetup "github.com/elohr/OwnLocal/setup"
 	"log"
 	"net/http"
+
+	"github.com/OwnLocal/EstebanProject/config"
+	"github.com/OwnLocal/EstebanProject/router"
+	esSetup "github.com/OwnLocal/EstebanProject/setup"
 )
 
 // main is the entry point of the app

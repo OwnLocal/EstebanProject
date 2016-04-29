@@ -1,7 +1,7 @@
 package router
 
 import (
-	"github.com/elohr/OwnLocal/controllers/business"
+	"github.com/OwnLocal/EstebanProject/controllers/business"
 	"github.com/julienschmidt/httprouter"
 )
 
