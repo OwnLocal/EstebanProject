@@ -1,14 +1,16 @@
 package business
 
 import (
-	"encoding/json"
+	//"encoding/json"
 	"log"
 	"net/http"
-	"strconv"
+	//"strconv"
 
 	"github.com/OwnLocal/EstebanProject/models/business"
 	"github.com/OwnLocal/EstebanProject/util"
 	"github.com/julienschmidt/httprouter"
+	"fmt"
+	"strconv"
 )
 
 const (
@@ -22,40 +24,53 @@ const (
 // Metadata included on the response: the search text, the from value used,
 // the maxResults (size) used, the number of results being returned,
 // and an array with the businesses that are part of the result
+//func List(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
+//	searchText := p.ByName("search")
+//	from, _ := strconv.Atoi(p.ByName("from")) // returns 0 if non numeric value is given
+//	size, _ := strconv.Atoi(p.ByName("size")) // returns 0 if non numeric value is given
+//
+//	if size == 0 {
+//		size = _RESULT_SIZE
+//	}
+//
+//	businesses, err := business.Search(searchText, from, size)
+//
+//	if err != nil {
+//		log.Printf("Error on business.List: %s\n", err)
+//		util.WriteServerError(w)
+//		return
+//	}
+//
+//	response := map[string]interface{}{
+//		"search":     searchText,
+//		"from":       from,
+//		"maxResults": size,
+//		"results":    len(businesses),
+//		"businesses": businesses,
+//	}
+//
+//	responseJson, err := json.Marshal(response)
+//
+//	if err != nil {
+//		log.Printf("Error on business.List: %s\n", err)
+//		util.WriteServerError(w)
+//		return
+//	}
+//
+//	util.WriteSuccess(w, responseJson)
+//}
+
 func List(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
-	searchText := p.ByName("search")
-	from, _ := strconv.Atoi(p.ByName("from")) // returns 0 if non numeric value is given
-	size, _ := strconv.Atoi(p.ByName("size")) // returns 0 if non numeric value is given
+	from, _ :=  strconv.Atoi(r.URL.Query().Get("from"))
+	size, _ := strconv.Atoi(r.URL.Query().Get("size"))
 
 	if size == 0 {
 		size = _RESULT_SIZE
 	}
 
-	businesses, err := business.Search(searchText, from, size)
+	res := fmt.Sprintf("%v %v", from, size)
 
-	if err != nil {
-		log.Printf("Error on business.List: %s\n", err)
-		util.WriteServerError(w)
-		return
-	}
-
-	response := map[string]interface{}{
-		"search":     searchText,
-		"from":       from,
-		"maxResults": size,
-		"results":    len(businesses),
-		"businesses": businesses,
-	}
-
-	responseJson, err := json.Marshal(response)
-
-	if err != nil {
-		log.Printf("Error on business.List: %s\n", err)
-		util.WriteServerError(w)
-		return
-	}
-
-	util.WriteSuccess(w, responseJson)
+	util.WriteSuccess(w, []byte(res))
 }
 
 // Get returns the business object based on the id provided

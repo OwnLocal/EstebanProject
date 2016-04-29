@@ -27,10 +27,10 @@ func init() {
 
 	if *prod {
 		log.Println("Using production config file")
-		configFile, err = ioutil.ReadFile("./config/config_prod.json")
+		configFile, err = ioutil.ReadFile("../../config/config_prod.json")
 	} else {
 		log.Println("Using debug config file")
-		configFile, err = ioutil.ReadFile("./config/config_debug.json")
+		configFile, err = ioutil.ReadFile("../../config/config_debug.json")
 	}
 
 	if err != nil {
